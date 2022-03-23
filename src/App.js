@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+
+const MOMAURL = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/'
 
 function Gallery() {
   return (
@@ -13,9 +15,17 @@ function ButtonBar() {
 }
 
 function App() {
+  let [artId, setArtId] = useState(12720)
+  let [data, setData] = useState({})
+
   useEffect(() => {
     document.title = 'Welcome to ArtWorld'
-  })
+
+    fetch(`${MOMAURL}${artId}`)
+      .then(response => response.json())
+      .then(resData => setData(resData))
+
+  }, [artId])
 
   return (
     <div className="App">
