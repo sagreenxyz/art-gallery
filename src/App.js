@@ -1,26 +1,8 @@
 import { useState, useEffect } from 'react';
+import Gallery from './components/Gallery';
+import ButtonBar from './components/ButtonBar'
 
 const MOMAURL = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/'
-
-function Gallery(props) {
-  return (
-    <div style={{ 'width': '100%' }}>
-      <img src={props.objectImg} alt={props.title} />
-      <p>{props.artist}</p>
-    </div>
-  )
-}
-
-function ButtonBar(props) {// in ButtonBar.js
-  return (
-    <div>
-      <button value={-5} onClick={props.handleIterate}>Way Back</button>
-      <button value={-1} onClick={props.handleIterate}>Back</button>
-      <button value={1} onClick={props.handleIterate}>Next</button>
-      <button value={5} onClick={props.handleIterate}>Big Next</button>
-    </div>
-  )
-}
 
 function App() {
   let [artId, setArtId] = useState(12720)
