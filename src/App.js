@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 function Gallery() {
   return (
     <div>Gallery</div>
@@ -11,6 +13,10 @@ function ButtonBar() {
 }
 
 function App() {
+  useEffect(() => {
+    document.title = 'Welcome to ArtWorld'
+  })
+
   return (
     <div className="App">
       <Gallery />
