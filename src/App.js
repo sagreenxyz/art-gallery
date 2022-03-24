@@ -14,15 +14,24 @@ function Gallery(props) {
   )
 }
 
-function ButtonBar() {
+function ButtonBar(props) {
   return (
-    <div>ButtonBar</div>
+    <div>
+      <button value={-5} onClick={props.handleIterate}>Way Back</button>
+      <button value={-1} onClick={props.handleIterate}>Back</button>
+      <button value={1} onClick={props.handleIterate}>Next</button>
+      <button value={5} onClick={props.handleIterate}>Big Next</button>
+    </div>
   )
 }
 
 function App() {
   let [artId, setArtId] = useState(12720)
   let [data, setData] = useState({})
+
+  const handleIterate = (e) => {
+    setArtId(artId + Number(e.target.value))
+  }
 
   useEffect(() => {
     document.title = 'Welcome to ArtWorld'
@@ -36,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <Gallery objectImg={data.primaryImage} artist={data.artistDisplayName} title={data.title} />
-      <ButtonBar />
+      <ButtonBar handleIterate={handleIterate} />
     </div>
   );
 }
