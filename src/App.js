@@ -1,18 +1,7 @@
 import { useState, useEffect } from "react";
+import Gallery from './components/Gallery'
 
 const MOMAURL = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/'
-
-function Gallery(props) {
-  return (
-    <div>
-      <img style={{ 'width': '500px' }}
-        src={props.objectImg}
-        alt={props.title}
-      />
-      <p>{props.artist}</p>
-    </div>
-  )
-}
 
 function ButtonBar(props) {
   return (
