@@ -2,9 +2,15 @@ import { useState, useEffect } from "react";
 
 const MOMAURL = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/'
 
-function Gallery() {
+function Gallery(props) {
   return (
-    <div>Gallery</div>
+    <div>
+      <img style={{ 'width': '500px' }}
+        src={props.objectImg}
+        alt={props.title}
+      />
+      <p>{props.artist}</p>
+    </div>
   )
 }
 
@@ -29,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      <Gallery />
+      <Gallery objectImg={data.primaryImage} artist={data.artistDisplayName} title={data.title} />
       <ButtonBar />
     </div>
   );
